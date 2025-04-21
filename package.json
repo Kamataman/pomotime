@@ -1,0 +1,33 @@
+{
+  "name": "pomotime",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.17",
+    "pinia": "^3.0.1",
+    "pinia-plugin-persistedstate": "^4.2.0",
+    "quasar": "^2.18.1",
+    "register-service-worker": "^1.7.2",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@quasar/vite-plugin": "^1.9.0",
+    "@vue/cli-plugin-pwa": "~5.0.0",
+    "eslint": "^9.23.0",
+    "eslint-plugin-vue": "^10.0.0",
+    "sass-embedded": "^1.86.3",
+    "vite-plugin-pwa": "^1.0.0",
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "@vitejs/plugin-vue": "^5.2.2",
+    "@vue/tsconfig": "^0.7.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.3.1",
+    "vue-tsc": "^2.2.8"
+  }
+}
