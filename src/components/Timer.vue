@@ -78,6 +78,7 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 const FOCUS_MINUTES = 25;
 const BREAK_MINUTES = 5;
 
+const startTime = ref(null);
 const isRunning = ref(false);
 const isBreak = ref(false);
 const timeLeft = ref(FOCUS_MINUTES * 60);
@@ -92,20 +93,26 @@ const formattedTime = computed(() => {
   )}`;
 });
 const progress = computed(() => {
-  const parent = isBreak.value ? BREAK_MINUTES * 60 : FOCUS_MINUTES * 60;
+  const parent = (isBreak.value ? BREAK_MINUTES : FOCUS_MINUTES) * 60;
   return (timeLeft.value / parent) * 100;
 });
 
+function updateRemaining() {
+  if (startTime.value !== null) {
+    const elapsed = Math.floor((Date.now() - startTime.value) / 1000);
+    timeLeft.value = Math.max((isBreak.value ? BREAK_MINUTES : FOCUS_MINUTES) * 60 - elapsed, 0);
+
+    if (timeLeft.value === 0) {
+      switchMode(); 
+    }
+  }
+}
+
 function startTimer() {
   if (isRunning.value) return;
+  startTime.value = Date.now();
   isRunning.value = true;
-  intervalId = setInterval(() => {
-    if (timeLeft.value > 0) {
-      timeLeft.value--;
-    } else {
-      switchMode();
-    }
-  }, 1000);
+  intervalId = setInterval(updateRemaining, 1000);
 }
 
 function stopTimer() {
@@ -121,6 +128,7 @@ function resetTimer() {
 
 function switchMode() {
   isBreak.value = !isBreak.value;
+  startTime.value = Date.now();
   timeLeft.value = (isBreak.value ? BREAK_MINUTES : FOCUS_MINUTES) * 60;
   // ここに通知・音・バイブなど追加予定
   handleTimerEnd();
