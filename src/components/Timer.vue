@@ -72,17 +72,17 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const FOCUS_MINUTES = 25;
 const BREAK_MINUTES = 5;
 
-const startTime = ref(null);
+const startTime = ref<number | undefined>(undefined);
 const isRunning = ref(false);
 const isBreak = ref(false);
 const timeLeft = ref(FOCUS_MINUTES * 60);
-let intervalId = null;
+let intervalId: number | undefined = undefined;
 
 const formattedTime = computed(() => {
   const minutes = Math.floor(timeLeft.value / 60);
@@ -98,12 +98,15 @@ const progress = computed(() => {
 });
 
 function updateRemaining() {
-  if (startTime.value !== null) {
+  if (startTime.value !== undefined) {
     const elapsed = Math.floor((Date.now() - startTime.value) / 1000);
-    timeLeft.value = Math.max((isBreak.value ? BREAK_MINUTES : FOCUS_MINUTES) * 60 - elapsed, 0);
+    timeLeft.value = Math.max(
+      (isBreak.value ? BREAK_MINUTES : FOCUS_MINUTES) * 60 - elapsed,
+      0
+    );
 
     if (timeLeft.value === 0) {
-      switchMode(); 
+      switchMode();
     }
   }
 }
