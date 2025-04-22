@@ -19,15 +19,15 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        name: "Habby - 習慣記録アプリ",
-        short_name: "Habby",
+        name: "PomoTime",
+        short_name: "PomoTime",
         start_url: "/",
         display: "standalone",
         background_color: "#ffffff",
-        theme_color: "#42b883",
+        theme_color: "#ff4500",
         icons: [
           {
-            src: "/img/icons/favicon.png",
+            src: "/pomotime192.png",
             sizes: "192x192",
             type: "image/png",
           },
