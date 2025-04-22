@@ -1,5 +1,46 @@
-# Vue 3 + TypeScript + Vite
+# PomoTime
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## アプリケーションの説明
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+このアプリケーションは、ポモドーロ・テクニックを活用して生産性を向上させるためのタイマーアプリです。Vue 3 と TypeScript を使用して構築されており、Vite を利用して高速な開発体験を提供します。
+
+## プロジェクトの概要
+
+このプロジェクトは、以下の技術スタックを使用して構築されています：
+
+- **Vue 3**: 最新のフロントエンドフレームワークで、効率的なコンポーネントベースの開発を可能にします。
+- **TypeScript**: 型安全なコードを書くためのJavaScriptのスーパーセット。
+- **Vite**: 高速なビルドツールで、開発環境を迅速にセットアップできます。
+- **PWA**: アプリケーションをデスクトップ・スマートフォンに追加できます。
+
+## 主な機能
+
+- ポモドーロ・テクニックに基づいたタイマー機能
+- タスクの管理と追跡
+- ユーザーフレンドリーなインターフェース
+- アラーム音・通知の送信
+
+## セットアップ
+
+このプロジェクトをローカル環境でセットアップするには、以下の手順を実行してください：
+
+1. リポジトリをクローンします：
+    ```bash
+    git clone https://github.com/your-username/pomotime.git
+    cd pomotime
+    ```
+
+2. 必要な依存関係をインストールします：
+    ```bash
+    npm install
+    ```
+
+3. 開発サーバーを起動します：
+    ```bash
+    npm run dev
+    ```
+
+4. ブラウザで以下のURLを開いてアプリケーションを確認します：
+    ```
+    http://localhost:3000
+    ```
